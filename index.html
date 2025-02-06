@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Password Strength Checker</h2>
+        <input type="password" id="passwordInput" placeholder="Enter your password">
+        <p id="strengthText">Password Strength: </p>
+        <p id="charInfo"></p>
+    </div>
+
+    <script>
+        // JavaScript for Password Strength Checking
+        const passwordInput = document.getElementById('passwordInput');
+        const strengthText = document.getElementById('strengthText');
+        const charInfo = document.getElementById('charInfo');
+
+        passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            let strength = 'Weak';
+            let colorClass = 'weak';
+
+            const hasLetters = /[a-zA-Z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            const length = password.length;
+
+            if (length >= 4 && (hasLetters || hasNumbers)) {
+                strength = 'medium';
+                colorClass = 'medium';
+            }
+            if (length >= 6 && hasLetters && hasNumbers) {
+                strength = 'strong';
+                colorClass = 'strong';
+            }
+            if (length >= 8 && hasLetters && hasNumbers && hasSpecialChars) {
+                strength = ' very strong';
+                colorClass = 'very-strong';
+            }
+
+            strengthText.textContent = `Password Strength: ${strength}`;
+            strengthText.className = colorClass;
+
+            // Display character info
+            charInfo.innerHTML = `
+                Contains Alphabets: ${hasLetters ? '✔️' : '❌'} <br>
+                Contains Numbers: ${hasNumbers ? '✔️' : '❌'} <br>
+                Contains Special Characters: ${hasSpecialChars ? '✔️' : '❌'}
+            `;
+        });
+    </script>
+</body>
+</html>

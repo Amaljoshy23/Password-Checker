@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeIRp8Ut1lXF02e6YT7Rs1BVA_N8e1aA0XJg&s'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="password"]:focus {
+    border-color: #6200ea;
+    box-shadow: 0 0 8px rgba(98, 0, 234, 0.5);
+}
+
+#strengthText {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.weak { color: red; }
+.medium { color: orange; }
+.strong { color: green; }
+.very-strong { color: blue; }
+
+#charInfo {
+    margin-top: 10px;
+    font-size: 14px;
+}
